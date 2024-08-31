@@ -63,7 +63,7 @@ public class Library {
         if (!users.contains(user)){
             this.users.add(user);
         }
-        System.out.println("This user already exist: " + user);
+        else {System.out.println("Don't possible to complete the addition!");}
     }
 
     public boolean removeUser(User user){
@@ -71,9 +71,18 @@ public class Library {
     }
 
     public void listUsers(){
-        System.out.println("List user by movies library");
+        System.out.println("Listing all users in the library:");
         for (User u : users){
             System.out.println(u);
         }
+    }
+
+    public User findUserById(String userId) {
+        for (User user: users){
+            if (user.getUserId().equals(userId)){
+                return user;
+            }
+        }
+        return null;
     }
 }
