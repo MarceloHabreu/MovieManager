@@ -14,6 +14,11 @@ public class Main {
         library.addMovie(movie1);
         library.listMoviesByGenre("Action");
         System.out.println("Find the attributes movie by title: " + library.searchMovieByTitle("Avengers"));
+        System.out.println("------Displaying some movies items Movie 1-----");
+        System.out.println(movie1.getDirector());
+        System.out.println(movie1.getDescription());
+        System.out.println(movie1.getYearRelease());
+        System.out.println(movie1.getGenre());
 
         // Adding users, removing and listing
         User user1 = new User("Marcelo", "001");
@@ -28,8 +33,14 @@ public class Main {
         System.out.println("------Listing users-----");
         library.listUsers();
         System.out.println("------Listing borrowed movies-----");
-        user1.lisBorrowedMovies();
-
-
+        user1.listBorrowedMovies();
+        user2.listBorrowedMovies();
+        System.out.println("------Listing borrowed movies after return movies-----");
+        user1.returnMovie(movie1);
+        user2.returnMovie(movie2);
+        user1.listBorrowedMovies();
+        user2.listBorrowedMovies();
+        System.out.println("------Listing borrowed movies made by library-----");
+        library.registerLoan(user1,movie1);
     }
 }

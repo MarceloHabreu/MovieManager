@@ -85,4 +85,17 @@ public class Library {
         }
         return null;
     }
+
+    public boolean registerLoan(User user, Movie movie){
+            if (movies.contains(movie) && !user.getBorrowedMovies().contains(movie)) {
+                user.borrowMovie(movie);
+                movies.remove(movie);
+                System.out.println("Loan registered: " + user.getName() + " borrowed the movie " + movie.getTitle());
+                return true;
+            } else {
+                System.out.println("Loan failed: Movie not available or has already been borrowed.");
+                return false;
+            }
+
+    }
 }

@@ -52,7 +52,7 @@ public class User {
         borrowedMovies.remove(movie);
     }
 
-    public void lisBorrowedMovies() {
+    public void listBorrowedMovies() {
         if (borrowedMovies.isEmpty()){
             System.out.println(name + " has not borrowed any movies!");
         }
