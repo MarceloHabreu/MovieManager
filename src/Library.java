@@ -96,6 +96,17 @@ public class Library {
                 System.out.println("Loan failed: Movie not available or has already been borrowed.");
                 return false;
             }
+    }
 
+    public boolean registerReturn(User user, Movie movie){
+        if (user.getBorrowedMovies().contains(movie)){
+            user.returnMovie(movie);
+            movies.add(movie);
+            System.out.println("Return registered: " + user.getName() + " returned the movie " +  movie.getTitle() + ".");
+            return true;
+        } else {
+            System.out.println("Return failed: Movie is not in the user's loan list.");
+            return false;
+        }
     }
 }
