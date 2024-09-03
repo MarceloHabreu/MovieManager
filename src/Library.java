@@ -109,4 +109,17 @@ public class Library {
             return false;
         }
     }
+    public void generateLoanReport(){
+        System.out.println("Loan report: ");
+        for (User user: users){
+            if (!user.getBorrowedMovies().isEmpty()){
+                System.out.println(user.getName() + " borrowed the following movies: ");
+                for (Movie movie: user.getBorrowedMovies()){
+                    System.out.println("-" + movie.getTitle());
+                }
+            } else {
+                System.out.println(user.getName() + " they didn't borrow any movies.");
+            }
+        }
+    }
 }
